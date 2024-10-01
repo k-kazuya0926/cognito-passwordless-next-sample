@@ -7,7 +7,7 @@ export default function AuthRedirector (props: {
   children: React.ReactNode
 }): JSX.Element {
   const { signInStatus } = usePasswordless()
-  const notLoggedInPaths = ['/signin', '/signup']
+  const notLoggedInPaths = ['/signin', '/signup', '/answerChallenge']
   const pathname = usePathname()
   useEffect(() => {
     if (notNeedsToSigninButSignInPage(pathname, signInStatus)) {
