@@ -11,10 +11,6 @@ class AuthService {
         this.cognitoUser = await Auth.signIn(email) as CognitoUserWithEmail; // ここでclientMetadataを渡してもLambdaに渡されない
     }
 
-    public async signOut(): Promise<void> {
-        await Auth.signOut();
-    }
-
     public async answerCustomChallenge(answer: string): Promise<boolean> {
         if (this.cognitoUser) {
             this.cognitoUser = await Auth.sendCustomChallengeAnswer(this.cognitoUser, answer, {
@@ -44,13 +40,6 @@ class AuthService {
         } catch {
             return false;
         }
-    }
-
-    public async getUserDetails(): Promise<any> {
-        if (!this.cognitoUser) {
-            this.cognitoUser = await Auth.currentAuthenticatedUser() as CognitoUserWithEmail;
-        }
-        return await Auth.userAttributes(this.cognitoUser);
     }
 
 }
