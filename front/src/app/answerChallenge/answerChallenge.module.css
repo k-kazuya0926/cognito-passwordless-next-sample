@@ -1,0 +1,35 @@
+/* AnswerChallenge.module.css */
+.card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.card-header {
+    margin-bottom: 20px;
+}
+.card-body .form {
+    display: flex;
+    justify-content: space-between;
+}
+.card-body input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin-right: 5px;
+}
+.card-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+.card-footer button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.card-footer p {
+    color: red;
+    margin-top: 10px;
+}

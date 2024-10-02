@@ -5,6 +5,7 @@ import { PasswordlessContextProvider } from 'amazon-cognito-passwordless-auth/re
 import AuthRedirector from '@/components/AuthRedirector'
 import Header from '@/components/Header'
 import styles from './styles.module.css'
+import Amplify from 'aws-amplify';
 
 export default function RootLayout ({
   children
@@ -21,6 +22,14 @@ export default function RootLayout ({
       }
     }
   })
+
+  Amplify.configure({
+    Auth: {
+      region: process.env.NEXT_PUBLIC_AWS_REGION!,
+      userPoolId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID!,
+      userPoolWebClientId: process.env.NEXT_PUBLIC_COGNITO_USER_POOL_CLIENT_ID!,
+    }
+  });
 
   return (
     <html lang="ja">
